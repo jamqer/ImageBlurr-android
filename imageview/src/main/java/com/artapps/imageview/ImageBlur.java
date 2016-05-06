@@ -15,7 +15,6 @@ public class ImageBlur extends ImageView{
 
     public ImageBlur(Context context) {
         super(context);
-
     }
 
     public ImageBlur(Context context, AttributeSet attrs) {
@@ -36,7 +35,10 @@ public class ImageBlur extends ImageView{
     @SuppressWarnings("deprecation")
     private void setBlurrBackground(final Context context, final AttributeSet attrs){
         final Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
-        final float bRadius = getBlurrRadius(context, attrs);
+        float bRadius = getBlurrRadius(context, attrs);
+        if(bRadius == 0.0f || bRadius > 25.0f) {
+            bRadius = 0.1f;
+        }
         setBackground(new BitmapDrawable(BlurrEffect.blurrImage(context, bitmap, bRadius)));
     }
 
@@ -48,7 +50,6 @@ public class ImageBlur extends ImageView{
         }catch (Exception e){
             Log.d(LOG_ERROR, "Exception: " + e.toString());
         }
-
         return 0;
     }
 }

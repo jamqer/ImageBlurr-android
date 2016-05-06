@@ -5,9 +5,18 @@
     android:layout_height="match_parent">
 
     <com.artapps.imageview.ImageBlur
+        android:id="@+id/image1"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/background"
-        app:blurRadius = "25.0"
-        />
+        app:blurRadius="12.0" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/image1"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background" />
 </RelativeLayout>
